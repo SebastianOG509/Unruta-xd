@@ -9,7 +9,9 @@ const login = async (req: any, res: any) => {
 
     if (!user.cuentaconfirmada)
       throw new Error("Esta cuenta no esta confirmada");
-
+    console.log(req.body.contrasena);
+    console.log(user.contrasena);
+    console.log(bcrypt.compareSync("123546", user.contrasena));
     if (!bcrypt.compareSync(req.body.contrasena, user.contrasena))
       throw new Error("Contraseña incorrecta");
 

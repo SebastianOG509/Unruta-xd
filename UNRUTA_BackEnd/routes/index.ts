@@ -5,11 +5,11 @@ import confirmarcuenta from "../controllers/confirmarcuenta";
 
 const router = Router();
 
-router.get("/", login);
+router.post("/login", login);
 
 router.get("/confirmacion/:token", confirmarcuenta)
 
-router.post("/", registrar);
+router.post("/registro", registrar);
 
 router.post("/servicios", (req, res) => {
   res.send("creando tareas");

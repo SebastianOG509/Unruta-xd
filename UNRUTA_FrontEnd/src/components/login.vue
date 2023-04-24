@@ -15,6 +15,7 @@
                         </p>
                     </div>
                     <br>
+                    <form @submit.prevent="loginusuario()">
                     <div>
                         <div class="flex felx-col">
                             <span class="font-bold mb-1 text-gray-800">
@@ -22,7 +23,7 @@
                             </span>
                         </div>
                         <div>
-                            <input type="text" name="email" placeholder="ejemplo@unal.edu.co" class="p-4 rounded border bg-blue-200 border-gray-300 w-full">
+                            <input type="text" name="email" placeholder="ejemplo@unal.edu.co" v-model="usuario.correo" class="p-4 rounded border bg-blue-200 border-gray-300 w-full">
                         </div>
                     </div>
                     <br>
@@ -33,7 +34,7 @@
                             </span>
                         </div>
                         <div >
-                            <input type="text" name="password" class="p-4 rounded border bg-blue-200 border-gray-300 w-full">
+                            <input type="text" name="password" v-model="usuario.contrasena" class="p-4 rounded border bg-blue-200 border-gray-300 w-full">
                         </div>
                     </div>
                     <br>
@@ -41,6 +42,7 @@
                     <button class="transition p-2 w-full bg-red-300 hover:bg-red-500 text-white ronded-lg font-bold">
                         LOGIN <i class="fa fa-send"></i>
                     </button>
+                    </form>
                     <br>
                     <br>
                     <div class="text-center font-bold text-white">
@@ -76,3 +78,22 @@
     }
 
 </style>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+import { Usuariologin } from "@/interfaces/usuariologin";
+import { login } from "@/services/login";
+
+export default defineComponent({
+  data() {
+    return {
+      usuario: {} as Usuariologin,
+    };
+  },
+  methods: {
+    async loginusuario() {
+      await login(this.usuario);
+    },
+  },
+});
+</script>
