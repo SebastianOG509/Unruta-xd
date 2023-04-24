@@ -9,6 +9,7 @@ const confirmarcuenta = async (req: any, res: any) => {
     user.cuentaconfirmada = true;
     user.tokenconfirm = "";
     await user.save();
+    res.send("Se confirmo con exito");
     console.log(user);
   } catch (error) {
     res.json({ error: error });

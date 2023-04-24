@@ -34,7 +34,7 @@
                             </span>
                         </div>
                         <div >
-                            <input type="text" name="password" v-model="usuario.contrasena" class="p-4 rounded border bg-blue-200 border-gray-300 w-full">
+                            <input type="password" name="password" v-model="usuario.contrasena" class="p-4 rounded border bg-blue-200 border-gray-300 w-full">
                         </div>
                     </div>
                     <br>
